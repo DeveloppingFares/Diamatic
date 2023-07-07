@@ -1,0 +1,17 @@
+pipeline {
+    agent {label 'master'}
+    options {
+        buildDiscarder logRotator(
+                    daysToKeepStr: '16',
+                    numToKeepStr: '10'
+            )
+        disableConcurrentBuilds()
+    }
+    stages {
+        stage('Test') {
+            steps {
+                echo "Test"
+            }
+        }
+    }
+}
